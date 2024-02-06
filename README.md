@@ -24,4 +24,17 @@ Los mensajes del chat se almacenan en la colección "messages" en MongoDB, sigui
 Se ha corroborado la integridad del proyecto para asegurar que todas las funcionalidades anteriores sigan operativas.
 Importante
 FileSystem no ha sido eliminado del proyecto y sigue siendo compatible para garantizar la continuidad de las funcionalidades existentes.
+
 Estructura de Carpetas Actualizada
+
+- dao
+  - fileSystemManagers
+    - // Managers de FileSystem
+  - models
+    - // Esquemas de MongoDB
+  - mongoManagers
+    - // Managers de MongoDB
+- views
+  - // Otras vistas del proyecto
+  - chat.handlebars
+- // Otros archivos y carpetas
