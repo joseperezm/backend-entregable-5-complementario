@@ -1,106 +1,26 @@
-const fs = require('fs');
+const Product = require('../dao/models/productModel');
 
 class ProductManager {
-    constructor(filePath) {
-        this.path = filePath;
-    }
-
-    async addProduct(newProduct) {
+    async addProduct(productData) {
         try {
-            const products = await this.getProductsFromFile();
-            newProduct.id = this.generateId(products);
-            products.push(newProduct);
-            await this.saveProductsToFile(products);
-            return newProduct.id;
+            const product = new Product(productData);
+            await product.save();
+            return product;
         } catch (error) {
-            throw new Error('Error al agregar el producto: ' + error.message);
+            throw error;
         }
     }
 
-    async getProducts() {
+    async getProductById(productId) {
         try {
-            const products = await this.getProductsFromFile();
-            return products;
+            const product = await Product.findById(productId);
+            return product;
         } catch (error) {
-            throw new Error('Error al obtener los productos: ' + error.message);
+            throw error;
         }
     }
 
-    async getProductById(id) {
-        try {
-            const products = await this.getProductsFromFile();
-            return products.find(product => product.id === id);
-        } catch (error) {
-            throw new Error('Error al obtener el producto por ID: ' + error.message);
-        }
-    }
-
-    async updateProduct(id, updatedFields) {
-        try {
-            let products = await this.getProductsFromFile();
-            const productIndex = products.findIndex(product => product.id === id);
-            if (productIndex !== -1) {
-                products[productIndex] = { ...products[productIndex], ...updatedFields };
-                await this.saveProductsToFile(products);
-                return true;
-            }
-            return false;
-        } catch (error) {
-            throw new Error('Error al actualizar el producto: ' + error.message);
-        }
-    }
-
-    async deleteProduct(id) {
-        try {
-            let products = await this.getProductsFromFile();
-            const initialLength = products.length;
-    
-            products = products.filter(product => product.id !== id);
-    
-            if (products.length !== initialLength) {
-                await this.saveProductsToFile(products);
-                return true;
-            }
-    
-            return false;
-        } catch (error) {
-            throw new Error('Error al eliminar el producto: ' + error.message);
-        }
-    }    
-
-    generateId(products) {
-        const ids = products.map(product => product.id);
-        const maxId = Math.max(...ids, 0);
-        return maxId + 1;
-    }
-
-    async getProductsFromFile() {
-        return new Promise((resolve, reject) => {
-            fs.readFile(this.path, 'utf8', (err, data) => {
-                if (err) {
-                    if (err.code === 'ENOENT') {
-                        resolve([]);
-                    } else {
-                        reject(err);
-                    }
-                } else {
-                    resolve(JSON.parse(data));
-                }
-            });
-        });
-    }
-
-    async saveProductsToFile(products) {
-        return new Promise((resolve, reject) => {
-            fs.writeFile(this.path, JSON.stringify(products, null, 2), 'utf8', (err) => {
-                if (err) {
-                    reject(err);
-                } else {
-                    resolve();
-                }
-            });
-        });
-    }
+    // Más métodos CRUD aquí...
 }
 
-module.exports = ProductManager;
+module.exports = new ProductManager();

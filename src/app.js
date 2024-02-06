@@ -1,3 +1,12 @@
+const mongoose = require('mongoose');
+
+// URL de conexión a MongoDB Atlas, reemplazar <username>, <password>, y <dbname> con tus propios datos
+const mongoDBURL = 'mongodb+srv://<username>:<password>@cluster0.mongodb.net/<dbname>?retryWrites=true&w=majority';
+
+mongoose.connect(mongoDBURL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('MongoDB connected...'))
+  .catch(err => console.log(err));
+
 const express = require('express');
 const exphbs = require("express-handlebars");
 const socket = require("socket.io");
