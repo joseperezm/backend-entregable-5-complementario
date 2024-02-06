@@ -49,6 +49,8 @@ Se ha agregado el modelo de persistencia de MongoDB y Mongoose al proyecto para 
   - chat.handlebars
 - // Otros archivos y carpetas
 
+
+
 ## Testeo (Mismo de primera pre-entrega)
 
 ## Listar todos los productos
