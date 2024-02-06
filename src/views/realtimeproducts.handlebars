@@ -1,0 +1,41 @@
+<h1 class="titulos">Productos Actualizados en Tiempo Real</h1>
+
+<div id="contenedorProductos" class="mt-4"></div>
+
+<div class="mt-4">
+    <h2 class="titulos">Formulario para agregar productos </h2>
+
+    <form class="texto-formulario">
+        <div class="mb-3">
+            <input type="text" class="form-control" id="title" placeholder="Titulo">
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="description" placeholder="Descripción">
+        </div>
+        <div class="mb-3">
+            <input type="number" class="form-control" id="price" placeholder="Precio">
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="thumbnails" placeholder="Imagen">
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="code" placeholder="Código">
+        </div>
+        <div class="mb-3">
+            <input type="number" class="form-control" id="stock" placeholder="Stock">
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="category" placeholder="Categoria">
+        </div>
+        <div class="mb-3">
+            <select class="form-select" id="status">
+                <option value="true">Activo</option>
+                <option value="false">Inactivo</option>
+            </select>
+        </div>
+        <button type="button" class="btn btn-primary" id="btnEnviar">Enviar</button>
+    </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"></script>
+<script src="js/index.js"></script>
