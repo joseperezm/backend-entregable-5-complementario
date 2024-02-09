@@ -52,14 +52,12 @@ Se ha agregado el modelo de persistencia de MongoDB y Mongoose al proyecto para 
  ┃ ┃ ┣ 📜messages-mongoose.js
  ┃ ┃ ┣ 📜migrar-productos.js
  ┃ ┃ ┗ 📜products-mongoose.js
- ┃ ┗ 📜.DS_Store
  ┣ 📂public
  ┃ ┣ 📂css
  ┃ ┃ ┗ 📜style.css
  ┃ ┣ 📂js
  ┃ ┃ ┣ 📜chat.js
  ┃ ┃ ┗ 📜index.js
- ┃ ┗ 📜.DS_Store
  ┣ 📂routes
  ┃ ┣ 📜.DS_Store
  ┃ ┣ 📜carts.router.js
@@ -72,8 +70,8 @@ Se ha agregado el modelo de persistencia de MongoDB y Mongoose al proyecto para 
  ┃ ┣ 📜chat.handlebars
  ┃ ┣ 📜index.handlebars
  ┃ ┗ 📜realtimeproducts.handlebars
- ┣ 📜.DS_Store
  ┗ 📜app.js
+
 
 ## Testeo (Mismo de primera pre-entrega)
 
