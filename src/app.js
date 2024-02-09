@@ -1,7 +1,7 @@
 const express = require('express');
 const exphbs = require("express-handlebars");
 const socket = require("socket.io");
-const mongoose = require('mongoose'); // Importar Mongoose
+const mongoose = require('mongoose');
 const PUERTO = 8080;
 const productsRouter = require("./routes/products.router.js");
 const cartsRouter = require("./routes/carts.router.js");
@@ -9,7 +9,6 @@ const viewsRouter = require("./routes/views.router.js");
 
 const app = express();
 
-// Conectar a MongoDB
 mongoose.connect('mongodb+srv://coderhouse:ihOXSjjIqf0DM7xT@jjpm.envjeyh.mongodb.net/ecommerce?retryWrites=true&w=majority')
   .then(() => console.log('Conectado a MongoDB'))
   .catch(err => console.error('Error al conectar a MongoDB', err));
@@ -42,20 +41,35 @@ const io = socket(server);
 io.on("connection", async (socket) => {
     console.log("Nuevo cliente conectado");
 
-    // Enviamos el array de productos al cliente que se conectó:
     socket.emit("productos", await productManager.getProducts());    
     
-    // Recibimos el evento "eliminarProducto" desde el cliente:
     socket.on("eliminarProducto", async (id) => {
         await productManager.deleteProduct(id);
-        // Enviamos el array de productos actualizado a todos los productos:
         io.sockets.emit("productos", await productManager.getProducts());
     });
 
-    // Recibimos el evento "agregarProducto" desde el cliente:
     socket.on("agregarProducto", async (producto) => {
         await productManager.addProduct(producto);
-        // Enviamos el array de productos actualizado a todos los productos:
         io.sockets.emit("productos", await productManager.getProducts());
+    });
+});
+
+const Message = require('./dao/models/messages-mongoose.js'); 
+
+io.on('connection', (socket) => {
+    console.log('Un usuario se ha conectado');
+
+    Message.find().then(messages => {
+        socket.emit('load all messages', messages); 
+    });
+
+    socket.on('chat message', async (data) => {
+        try {
+            const message = new Message(data);
+            await message.save();
+            io.emit('chat message', data); 
+        } catch (error) {
+            console.error('Error guardando el mensaje', error);
+        }
     });
 });

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Product = require('../models/products-mongoose'); // Asegúrate de ajustar la ruta al modelo de Producto
+const Product = require('../models/products-mongoose'); 
 
 class ProductManager {
     constructor() {}

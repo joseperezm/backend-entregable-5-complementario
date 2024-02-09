@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const Cart = require('../models/carts-mongoose'); // Asegúrate de ajustar la ruta al modelo de Carrito
-const Product = require('../models/products-mongoose'); // Necesario si quieres verificar los productos al añadirlos
+const Cart = require('../models/carts-mongoose'); 
+const Product = require('../models/products-mongoose'); 
 
 class CartManager {
     constructor() {}

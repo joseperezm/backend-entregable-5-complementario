@@ -6,7 +6,6 @@ const productManager = new ProductManager();
 router.get("/", async (req, res) => {
     try {
         const productos = await productManager.getProducts();
-        // Convertir cada producto a un objeto plano
         const productosObj = productos.map(producto => producto.toObject());
         res.render("index", {
             productos: productosObj
@@ -27,6 +26,10 @@ router.get("/realtimeproducts", async (req, res) => {
             error: "Error interno del servidor"
         });
     }
+});
+
+router.get("/chat", (req, res) => {
+    res.render("chat");
 });
 
 module.exports = router;

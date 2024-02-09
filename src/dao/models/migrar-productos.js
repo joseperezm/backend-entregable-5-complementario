@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const Product = require('./products-mongoose'); // Ajusta la ruta según tu estructura de proyecto
-const productsData = require('./products.json'); // Ajusta la ruta al archivo JSON
+const Product = require('./products-mongoose'); 
+const productsData = require('./products.json'); 
 
 mongoose.connect('mongodb+srv://coderhouse:ihOXSjjIqf0DM7xT@jjpm.envjeyh.mongodb.net/ecommerce?retryWrites=true&w=majority')
 .then(async () => {

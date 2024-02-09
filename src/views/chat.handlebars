@@ -1,0 +1,12 @@
+    <div id="user-container">
+        <input type="email" id="userEmail" placeholder="Ingresa tu correo electrónico" />
+        <button id="joinChat">Unirse al Chat</button>
+    </div>
+    <div id="chat-container" style="display:none;">
+        <ul id="messages"></ul>
+        <form id="form" action="">
+            <input id="input" autocomplete="off" placeholder="Escribe tu mensaje aquí..." /><button>Enviar</button>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="js/chat.js"></script>
