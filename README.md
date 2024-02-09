@@ -37,17 +37,43 @@ Se ha agregado el modelo de persistencia de MongoDB y Mongoose al proyecto para 
 
 ### Estructura de Carpetas Actualizada
 
-- dao
-  - fileSystemManagers
-    - // Managers de FileSystem
-  - models
-    - // Esquemas de MongoDB
-  - mongoManagers
-    - // Managers de MongoDB
-- views
-  - // Otras vistas del proyecto
-  - chat.handlebars
-- // Otros archivos y carpetas
+📦src
+ ┣ 📂dao
+ ┃ ┣ 📂db
+ ┃ ┃ ┣ 📜cartManager.js
+ ┃ ┃ ┗ 📜productManager.js
+ ┃ ┣ 📂fs
+ ┃ ┃ ┣ 📜cartManager-fs.js
+ ┃ ┃ ┣ 📜carts.json
+ ┃ ┃ ┣ 📜productManager-fs.js
+ ┃ ┃ ┗ 📜products.json
+ ┃ ┣ 📂models
+ ┃ ┃ ┣ 📜carts-mongoose.js
+ ┃ ┃ ┣ 📜messages-mongoose.js
+ ┃ ┃ ┣ 📜migrar-productos.js
+ ┃ ┃ ┗ 📜products-mongoose.js
+ ┃ ┗ 📜.DS_Store
+ ┣ 📂public
+ ┃ ┣ 📂css
+ ┃ ┃ ┗ 📜style.css
+ ┃ ┣ 📂js
+ ┃ ┃ ┣ 📜chat.js
+ ┃ ┃ ┗ 📜index.js
+ ┃ ┗ 📜.DS_Store
+ ┣ 📂routes
+ ┃ ┣ 📜.DS_Store
+ ┃ ┣ 📜carts.router.js
+ ┃ ┣ 📜products.router.js
+ ┃ ┗ 📜views.router.js
+ ┣ 📂views
+ ┃ ┣ 📂layouts
+ ┃ ┃ ┗ 📜main.handlebars
+ ┃ ┣ 📜.DS_Store
+ ┃ ┣ 📜chat.handlebars
+ ┃ ┣ 📜index.handlebars
+ ┃ ┗ 📜realtimeproducts.handlebars
+ ┣ 📜.DS_Store
+ ┗ 📜app.js
 
 ## Testeo (Mismo de primera pre-entrega)
 
