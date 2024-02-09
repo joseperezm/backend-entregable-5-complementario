@@ -57,6 +57,22 @@ class CartManager {
             throw error;
         }
     }
+
+    async deleteProductFromCart(cartId, productId) {
+        try {
+            const cart = await Cart.findById(cartId); // Busca el carrito por ID
+            if (!cart) {
+                throw new Error('Carrito no encontrado');
+            }
+            // Filtra los productos para eliminar el especificado
+            cart.products = cart.products.filter(product => product.toString() !== productId);
+            await cart.save(); // Guarda los cambios en el carrito
+            return cart; // Devuelve el carrito actualizado
+        } catch (error) {
+            console.error('Error eliminando el producto del carrito:', error);
+            throw error;
+        }
+    }
 }
 
 module.exports = CartManager;

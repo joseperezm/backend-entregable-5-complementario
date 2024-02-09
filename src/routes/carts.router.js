@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const CartManager = require("../dao/db/cartManager");
+const CartManager = require("../dao/db/cartManager.js");
 const cartManager = new CartManager();
 
 router.post("/carts", async (req, res) => {
@@ -16,7 +16,7 @@ router.post("/carts", async (req, res) => {
 
 router.get("/carts/:cid", async (req, res) => {
     try {
-        const cart = await cartManager.getCartById(req.params.cid);
+        const cart = await cartManager.getCart(req.params.cid);
         if (cart) {
             res.json(cart);
         } else {
@@ -30,7 +30,7 @@ router.get("/carts/:cid", async (req, res) => {
 
 router.post("/carts/:cid/product/:pid", async (req, res) => {
     try {
-        const success = await cartManager.addProductToCart(req.params.cid, req.params.pid);
+        const success = await cartManager.addToCart(req.params.cid, req.params.pid);
         if (success) {
             res.json({ message: "Producto agregado al carrito correctamente" });
         } else {
@@ -48,7 +48,7 @@ router.delete("/carts/:cid", async (req, res) => {
         if (success) {
             res.json({ message: "Carrito eliminado correctamente" });
         } else {
-            res.status(404).json({ message: "Carrito no encontrado" });
+            res.status(404).json({ message: "Carrito eliminado correctamente" });
         }
     } catch (error) {
         console.error("Error al eliminar el carrito...", error);
