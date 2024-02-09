@@ -59,19 +59,16 @@ Se ha agregado el modelo de persistencia de MongoDB y Mongoose al proyecto para 
  ┃ ┃ ┣ 📜chat.js
  ┃ ┃ ┗ 📜index.js
  ┣ 📂routes
- ┃ ┣ 📜.DS_Store
  ┃ ┣ 📜carts.router.js
  ┃ ┣ 📜products.router.js
  ┃ ┗ 📜views.router.js
  ┣ 📂views
  ┃ ┣ 📂layouts
  ┃ ┃ ┗ 📜main.handlebars
- ┃ ┣ 📜.DS_Store
  ┃ ┣ 📜chat.handlebars
  ┃ ┣ 📜index.handlebars
  ┃ ┗ 📜realtimeproducts.handlebars
  ┗ 📜app.js
-
 
 ## Testeo (Mismo de primera pre-entrega)
 
