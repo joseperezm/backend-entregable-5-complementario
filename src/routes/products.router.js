@@ -1,20 +1,68 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const ProductManagerMongo = require('../dao/productManagerMongo');
 
-// Instanciar el manager de MongoDB para productos
-const productManager = new ProductManagerMongo();
+const ProductManager = require("../dao/db/productManager");
+const productManager = new ProductManager();
 
-// Ruta para obtener todos los productos
-router.get('/', async (req, res) => {
-  try {
-    const products = await productManager.getAllProducts();
-    res.json(products);
-  } catch (error) {
-    res.status(500).send(error.toString());
-  }
+router.get('/products', async (req, res) => {
+    try {
+        const products = await productManager.getProducts();
+        res.json(products);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 });
 
-// Más rutas CRUD aquí...
+router.get('/products/:pid', async (req, res) => {
+    try {
+        const product = await productManager.getProductById(req.params.pid);
+
+        if (product) {
+            res.json(product);
+        } else {
+            res.status(404).json({ message: 'Producto no encontrado o inexistente' });
+        }
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+router.post('/products', async (req, res) => {
+    try {
+        const newProduct = req.body;
+        const product = await productManager.addProduct(newProduct);
+        res.status(201).json({ id: product._id, message: 'Producto agregado correctamente' });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+router.put('/products/:id', async (req, res) => {
+    try {
+        const updatedProduct = await productManager.updateProduct(req.params.id, req.body);
+
+        if (updatedProduct) {
+            res.json({ message: 'Producto actualizado correctamente', product: updatedProduct });
+        } else {
+            res.status(404).json({ message: 'Producto no encontrado o inexistente' });
+        }
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+router.delete('/products/:pid', async (req, res) => {
+    try {
+        const success = await productManager.deleteProduct(req.params.pid);
+        
+        if (success) {
+            res.json({ message: 'Producto eliminado correctamente' });
+        } else {
+            res.status(404).json({ message: 'Producto no encontrado' });
+        }
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
 
 module.exports = router;

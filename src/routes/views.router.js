@@ -1,13 +1,15 @@
 const express = require("express");
 const router = express.Router(); 
-const ProductManager = require("../controllers/productManager.js");
-const productManager = new ProductManager("./src/models/products.json");
+const ProductManager = require("../dao/db/productManager");
+const productManager = new ProductManager();
 
 router.get("/", async (req, res) => {
     try {
         const productos = await productManager.getProducts();
+        // Convertir cada producto a un objeto plano
+        const productosObj = productos.map(producto => producto.toObject());
         res.render("index", {
-            productos: productos
+            productos: productosObj
         });
     } catch (error) {
         console.error("Error al obtener productos", error);
@@ -15,9 +17,7 @@ router.get("/", async (req, res) => {
             error: "Error interno del servidor"
         });
     }
-})
-
-
+});
 
 router.get("/realtimeproducts", async (req, res) => {
     try {
@@ -27,6 +27,6 @@ router.get("/realtimeproducts", async (req, res) => {
             error: "Error interno del servidor"
         });
     }
-})
+});
 
-module.exports = router; 
+module.exports = router;
