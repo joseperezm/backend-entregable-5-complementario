@@ -37,41 +37,42 @@ Se ha agregado el modelo de persistencia de MongoDB y Mongoose al proyecto para 
 
 ### Estructura de Carpetas Actualizada
 
-📦src
- ┣ 📂dao
- ┃ ┣ 📂db
- ┃ ┃ ┣ 📜cartManager.js
- ┃ ┃ ┗ 📜productManager.js
- ┃ ┣ 📂fs
- ┃ ┃ ┣ 📜cartManager-fs.js
- ┃ ┃ ┣ 📜carts.json
- ┃ ┃ ┣ 📜productManager-fs.js
- ┃ ┃ ┗ 📜products.json
- ┃ ┣ 📂models
- ┃ ┃ ┣ 📜carts-mongoose.js
- ┃ ┃ ┣ 📜messages-mongoose.js
- ┃ ┃ ┣ 📜migrar-productos.js
- ┃ ┃ ┗ 📜products-mongoose.js
- ┣ 📂public
- ┃ ┣ 📂css
- ┃ ┃ ┗ 📜style.css
- ┃ ┣ 📂js
- ┃ ┃ ┣ 📜chat.js
- ┃ ┃ ┗ 📜index.js
- ┣ 📂routes
- ┃ ┣ 📜.DS_Store
- ┃ ┣ 📜carts.router.js
- ┃ ┣ 📜products.router.js
- ┃ ┗ 📜views.router.js
- ┣ 📂views
- ┃ ┣ 📂layouts
- ┃ ┃ ┗ 📜main.handlebars
- ┃ ┣ 📜.DS_Store
- ┃ ┣ 📜chat.handlebars
- ┃ ┣ 📜index.handlebars
- ┃ ┗ 📜realtimeproducts.handlebars
- ┗ 📜app.js
-
+src
+|── dao
+|   |── db
+|   |   |── cartManager.js
+|   |   └── productManager.js
+|   |── fs
+|   |   |── cartManager-fs.js
+|   |   |── carts.json
+|   |   |── productManager-fs.js
+|   |   └── products.json
+|   |── models
+|   |   |── carts-mongoose.js
+|   |   |── messages-mongoose.js
+|   |   |── migrar-productos.js
+|   |   └── products-mongoose.js
+|
+|── public
+|   |── css
+|   |   └── style.css
+|   |── js
+|   |   |── chat.js
+|   |   └── index.js
+|
+|── routes
+|   |── carts.router.js
+|   |── products.router.js
+|   └── views.router.js
+|
+|── views
+|   |── layouts
+|   |   └── main.handlebars
+|   |── chat.handlebars
+|   |── index.handlebars
+|   └── realtimeproducts.handlebars
+|
+└── app.js
 
 ## Testeo (Mismo de primera pre-entrega)
 
