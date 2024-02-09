@@ -34,12 +34,16 @@ function displayMessage(data) {
     window.scrollTo(0, document.body.scrollHeight);
 }
 
-// Función para manejar la unión al chat
+// Modificación para manejar la unión al chat y emitir el correo electrónico del usuario
 document.getElementById('joinChat').addEventListener('click', function() {
     const userEmail = document.getElementById('userEmail').value;
     if (userEmail) {
+        // Emitir evento con el correo electrónico del usuario al servidor
+        socket.emit('user email provided', userEmail);
+
         document.getElementById('user-container').style.display = 'none';
         document.getElementById('chat-container').style.display = 'block';
+        // La llamada a initializeChat se mantiene aquí, ya que sigue siendo necesaria para configurar los listeners
         initializeChat(userEmail);
     }
 });
