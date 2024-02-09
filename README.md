@@ -35,6 +35,7 @@ Se ha agregado el modelo de persistencia de MongoDB y Mongoose al proyecto para 
 
 - FileSystem no ha sido eliminado del proyecto y sigue siendo compatible para garantizar la continuidad de las funcionalidades existentes.
 
+<<<<<<< HEAD
 ### Estructura de Carpetas Actualizada
 
 src
@@ -73,6 +74,8 @@ src
 |   └── realtimeproducts.handlebars
 |
 └── app.js
+=======
+>>>>>>> 550274abcc4910701a7224de4bcc81a5162d855e
 
 ## Testeo (Mismo de primera pre-entrega)
 
