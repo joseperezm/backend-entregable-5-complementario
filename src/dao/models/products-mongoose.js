@@ -9,7 +9,6 @@ const productSchema = new mongoose.Schema({
   stock: Number,
   category: String,
   thumbnails: String,
-  // id: mongoose.Schema.Types.ObjectId // No es necesario definirlo, Mongoose lo añade automáticamente
 });
 
 const Product = mongoose.model('Product', productSchema);
