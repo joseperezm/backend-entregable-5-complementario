@@ -84,3 +84,12 @@ form {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.chatMessage li {
+    color: #e7e5e5;
+    background-color: #7c7c7c;
+    padding: 10px;
+    margin: 20px 10px 20px 10px;
+    border: 1px solid #00bcd4;
+    border-radius: 10px;
+}
