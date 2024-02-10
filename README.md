@@ -81,7 +81,7 @@ Se ha agregado el modelo de persistencia de MongoDB y Mongoose al proyecto para 
 - Verifica que la solicitud agregue el producto al carrito especificado y maneje correctamente la lógica para la cantidad de productos.
 - Consideraciones de seguridad: No permite agregar productos inexistentes al carrito.
 
-## Eliminar un producto de un carrito
+### Eliminar un producto de un carrito
 - Método: `DELETE`
 - URL: `http://localhost:8080/api/carts/:cid/product/:pid` (Reemplaza `:cid` con un ID de carrito y `:pid` con un ID de producto)
 - Verifica que la solicitud elimine el producto del carrito especificado.
