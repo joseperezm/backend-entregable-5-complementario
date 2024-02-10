@@ -59,7 +59,7 @@ class CartManager {
 
 async getProductsFromFile() {
     try {
-        const productsData = fs.readFileSync('./src/models/products.json', 'utf8');
+        const productsData = fs.readFileSync('./products.json', 'utf8');
         return JSON.parse(productsData);
     } catch (error) {
         throw new Error('Error al obtener los productos: ' + error.message);

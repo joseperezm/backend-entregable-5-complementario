@@ -33,6 +33,9 @@ const server = app.listen(PUERTO, () => {
     console.log(`Servidor escuchando en el puerto ${PUERTO}`);
 });
 
+const ProductManagerFs = require("./dao/fs/productManager-fs")
+const productManagerFs = new ProductManagerFs("./dao/fs/products.json");
+
 const ProductManager = require("./dao/db/productManager.js");
 const productManager = new ProductManager();
 

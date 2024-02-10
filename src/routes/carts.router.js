@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
+const CartManagerFs = require("../dao/fs/cartManager-fs.js")
+const cartManagerFs = new CartManagerFs("../dao/fs/carts.json");
+
 const CartManager = require("../dao/db/cartManager.js");
 const cartManager = new CartManager();
 

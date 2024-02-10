@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
+const ProductManagerFs = require("../dao/fs/productManager-fs")
+const productManagerFs = new ProductManagerFs("../dao/fs/products.json");
+
 const ProductManager = require("../dao/db/productManager");
 const productManager = new ProductManager();
 
